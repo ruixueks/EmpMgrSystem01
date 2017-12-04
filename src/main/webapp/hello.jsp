@@ -19,5 +19,6 @@
 		欢迎您，${user.username} <br/>
 		 <a href="login.jsp">重新登录</a>  <a href="servlet/loginOutServlet">注销</a>  
 	</div>
+	</div>
 </body>
 </html>

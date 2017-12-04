@@ -33,11 +33,11 @@
 		    {
 		%>
 		<tr>
-			<td><%=emp.getEmpno()%></td>
-			<td><%=emp.getEname()%></td>
-			<td><%=emp.getJob()%></td>
-			<td><%=df.format(emp.getHiredate())%></td>
-			<td><%=emp.getSal()%></td>
+			${Emp.empno}
+			${Emp.ename}
+			${Emp.job}
+			<%=df.format(emp.getHiredate())%>
+			${Emp.sal}
 			<td><a href="servlet/delEmp?empno=<%=emp.getEmpno()%>">删除</a></td>
 		</tr>
 		<%
