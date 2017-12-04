@@ -5,7 +5,7 @@
 package com.cheer.empmgrsystem.domain;
 
 
-import java.util.Date;
+import java.sql.Date;
 
 
 public class Emp

@@ -37,7 +37,36 @@ public class EmpDaoImpl implements EmpDao
     @Override
     public void save(Emp emp)
     {
+    	Connection conn = DBHelper.getInstance().getConnection();
+    	String sql = "INSERT INTO tbl_emp(empno, ename, job, hiredate, sal)VALUES(?,?,?,?,?)";
+    	
+    	PreparedStatement ps = null;
+    	int result = 0;
+        try
+        {
+            ps = conn.prepareStatement(sql);
 
+            ps.setInt(1, emp.getEmpno());
+            ps.setString(2, emp.getEname());
+            ps.setString(3, emp.getJob());
+            ps.setDate(4, emp.getHiredate());
+            ps.setDouble(5, emp.getSal());
+
+
+            result = ps.executeUpdate();
+
+            LOGGER.debug(sql);
+            LOGGER.debug("增加{}条记录", result);
+        }
+        catch (SQLException e)
+        {
+            LOGGER.catching(e);
+        }
+        finally
+        {
+            DBHelper.closeStatement(ps);
+        }
+    	
     }
 
     @Override
@@ -101,7 +130,7 @@ public class EmpDaoImpl implements EmpDao
         // String sql = "SELECT * FROM tbl_emp e LEFT OUT JOIN tbl_dept d ON(e.deptno = d.deptno)
         // ORDER BY empno";
 
-        String sql = "SELECT * FROM tbl_emp ORDER BY empno";
+        String sql = "SELECT * FROM tbl_emp";
 
         PreparedStatement ps = null;
         ResultSet rs = null;

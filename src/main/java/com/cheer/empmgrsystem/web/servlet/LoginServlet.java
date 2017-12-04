@@ -48,7 +48,7 @@ public class LoginServlet extends HttpServlet
             }  
         }  
           
-        out.write("您的应户名或密码错误"); 
+        out.write("您的用户名或密码错误"); 
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
